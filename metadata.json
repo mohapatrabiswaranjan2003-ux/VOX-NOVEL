@@ -1,0 +1,6 @@
+{
+  "name": "VoxNovel",
+  "description": "Online novel search engine and synchronized text-to-speech reader with customizable voices, pitch, tone, and sleep timer.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
