@@ -4,20 +4,17 @@ A comprehensive market viability evaluation, commercialization strategy, and arc
 
 ---
 
-## User Review & Critical Decisions
-
-> [!IMPORTANT]
-> The launch strategy and commercial roadmap are aligned with your selections:
+## Completed Implementations & Confirmed Decisions
 
 - **Confirmed Decision 1: Business & Monetization Model**:
   - *User Choice*: **Freemium with premium voices and ad-free listening**.
-  - *Strategy*: Core reading, text search, and standard Android multi-voice TTS remain 100% free with minimal non-intrusive banner/rewarded placements. Premium unlock offers high-tier neural voices, unlimited offline chapter downloads, and zero ads.
+  - *Status*: **Implemented**. Accessible via the crown button on the Discover header, demonstrating the free tier vs. studio neural voice premium tier ($3.99/mo).
 - **Confirmed Decision 2: Content Distribution & Legal Compliance**:
   - *User Choice*: **Public domain classics combined with legal open web serials**.
-  - *Strategy*: Strict adherence to Google Play Developer policies: distribution is anchored on verified public domain literature (Project Gutenberg, Standard Ebooks, Open Library) alongside open-access web serials under Creative Commons/open publication licenses, complete with in-app copyright transparency and DMCA submission channels.
-- **Confirmed Decision 3: Next Competitive Feature**:
+  - *Status*: **Implemented**. Sourced under verified Public Domain (Project Gutenberg, Open Library) and Open-Access Web Serials, with in-app copyright transparency and DMCA submission channels.
+- **Confirmed Decision 3: Core Competitive Feature**:
   - *User Choice*: **Background lock-screen playback with media controls**.
-  - *Architecture*: Android `ForegroundService` with `MediaSessionCompat`, allowing continuous playback when the user turns off the screen or switches to other apps, complete with notification player controls (Play/Pause, Next/Prev sentence, chapter title, and artwork).
+  - *Status*: **Implemented**. Android `AudioPlaybackService` foreground service with notification media controls (Play/Pause, Next/Prev sentence, chapter title, and notification progress).
 
 ---
 
@@ -36,8 +33,8 @@ The global digital reading and audiobook market exceeds **$5.4 Billion USD** (gr
 | **Offline Freedom** | Heavy files require large device storage | Limited | **Instant lightweight SQLite caching** |
 
 ### Verdict on Market Success
-**Yes, VoxNovel has high commercial viability**, provided it follows three market rules:
-1. **Uninterrupted Background Playback**: Audiobook users spend 80% of their listening time with their phone screen off in their pocket or in the car. Supporting lock-screen media notifications is essential for high retention.
+**Yes, VoxNovel has high commercial viability**, following three key market rules:
+1. **Uninterrupted Background Playback**: Audiobook users spend 80% of their listening time with their phone screen off in their pocket or in the car. Supporting lock-screen media notifications provides high retention.
 2. **Transparent Licensing**: Relying on public domain and open-access fiction ensures zero risk of store suspension.
 3. **Data Efficiency Positioning**: Marketing the app as the *"zero-data audiobook player"* creates a strong competitive advantage in emerging markets and for commuters with limited data plans.
 
@@ -58,10 +55,10 @@ The global digital reading and audiobook market exceeds **$5.4 Billion USD** (gr
 ## 3. Key Product Decisions & Trade-Offs
 
 - **Decision 1: Android MediaSession & Foreground Service**:
-  - *Approach*: Implement an Android `ForegroundService` linked with `MediaSessionCompat` and `NotificationCompat.MediaStyle`.
+  - *Approach*: Implemented an Android `AudioPlaybackService` linked with `NotificationCompat.BigTextStyle` and `FOREGROUND_SERVICE_MEDIA_PLAYBACK`.
   - *Why*: Ensures Android OS does not kill audio when the app is minimized or the screen turns off.
 - **Decision 2: Copyright Safety & Store Compliance**:
-  - *Approach*: Built on open public domain literature and open web serial archives. Include standard terms of service, attribution metadata, and DMCA notice modal.
+  - *Approach*: Built on open public domain literature and open web serial archives. Included standard terms of service, attribution metadata, and DMCA notice modal.
   - *Why*: Guarantees seamless approval on the Google Play Store without intellectual property strikes.
 
 ---
@@ -89,8 +86,7 @@ The global digital reading and audiobook market exceeds **$5.4 Billion USD** (gr
 │                                                                        │
 │   ┌───────────────────────────────────────────────────────────────┐    │
 │   │               AudioPlaybackService (Foreground)               │    │
-│   │ - MediaSessionCompat & Lock Screen Playback Controls          │    │
-│   │ - NotificationCompat.MediaStyle with Cover Art & Controls     │    │
+│   │ - Lock Screen Playback Controls & Notifications               │    │
 │   │ - TextToSpeech Engine with Utterance Progression              │    │
 │   │ - Sleep Timer Coordinator                                     │    │
 │   └───────────────────────────────────────────────────────────────┘    │
